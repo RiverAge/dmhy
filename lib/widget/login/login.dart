@@ -1,4 +1,4 @@
-
+import 'package:dmhy/bloc/authenticate/authenticate.dart';
 import 'package:dmhy/bloc/login/login.dart';
 import 'package:dmhy/event/login/login.dart';
 
@@ -18,7 +18,8 @@ class Login extends StatelessWidget {
             ..add(Fetch()),
         ),
         BlocProvider<LoginBloc>(
-          create: (context) => LoginBloc(),
+          create: (context) => LoginBloc(
+              authenticateBloc: BlocProvider.of<AuthenticateBloc>(context)),
         ),
         BlocProvider<ConfigureBloc>(
           create: (context) => ConfigureBloc(),
@@ -27,14 +28,12 @@ class Login extends StatelessWidget {
 }
 
 class LoginForm extends StatelessWidget {
-  final _usernameController =
-      TextEditingController(text: '');
+  final _usernameController = TextEditingController(text: '');
   final _passwordController = TextEditingController(text: '');
   final _captchaController = TextEditingController();
 
   @override
-  Widget build(BuildContext context) => BlocBuilder<CaptchaBloc,
-          CaptchaState>(
+  Widget build(BuildContext context) => BlocBuilder<CaptchaBloc, CaptchaState>(
       builder: (context, captchaState) => BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state is LoginFailure) {

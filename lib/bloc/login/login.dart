@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:dmhy/bloc/authenticate/authenticate.dart';
+import 'package:dmhy/event/authenticate/authenticate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:meta/meta.dart';
@@ -14,9 +16,12 @@ part 'package:dmhy/bloc/login/configure.dart';
 part 'package:dmhy/bloc/login/fetch_cookie.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-
   final _sl = GetIt.instance;
 
+  final AuthenticateBloc authenticateBloc;
+
+  LoginBloc({@required this.authenticateBloc})
+      : assert(authenticateBloc != null);
 
   @override
   LoginState get initialState => LoginInitial();
@@ -35,6 +40,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             lockSessionIP: event.lockSessionIP,
             enableSSL: event.enableSSL);
         yield LoginSuccess();
+        authenticateBloc.add(LoggedIn(token: ret[0], uid: ret[1]));
       } on WrongCaptchaException catch (e) {
         yield LoginFailure(
             error: e.toString(), code: LoginFailureCode.WrongCaptcha);

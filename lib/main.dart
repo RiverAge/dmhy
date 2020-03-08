@@ -1,3 +1,6 @@
+import 'package:dmhy/bloc/authenticate/authenticate.dart';
+import 'package:dmhy/state/authenticate/authenticate.dart';
+import 'package:dmhy/widget/home/home.dart';
 import 'package:dmhy/widget/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +29,8 @@ class SimpleBlocDelegate extends BlocDelegate {
 void main() {
   setup();
   BlocSupervisor.delegate = SimpleBlocDelegate();
-  runApp(MyApp());
+  runApp(BlocProvider<AuthenticateBloc>(
+      create: (_) => AuthenticateBloc(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -53,11 +57,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('动漫花园'),
-        ),
-        body: Login(),
-      ),
+          appBar: AppBar(
+            title: Text('动漫花园'),
+          ),
+          body: BlocBuilder<AuthenticateBloc, AuthenticateState>(
+            builder: (context, state) =>
+                state is AuthenticationAuthenticated ? Home() : Login(),
+          )),
     );
   }
 }
