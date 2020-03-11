@@ -71,6 +71,12 @@ Future<User> fetchDetail(String cookie, String uid) async {
       user.actualUpload = t.text.split('实际上传:')[1].trim();
     } else if (text.contains('实际下载')) {
       user.actualDownload = t.text.split('实际下载:')[1].trim();
+    } else if (text.contains('做种/下载时间比率')) {
+      user.seedingDownloadRatio = t.text.split('做种/下载时间比率:')[1].trim();
+    } else if (text.contains('做种时间')) {
+      user.seedingTime = t.text.split('做种时间:')[1].trim();
+    } else if (text.contains('下载时间')) {
+      user.downloadTime = t.text.split('下载时间:')[1].trim();
     }
   });
   print(user);

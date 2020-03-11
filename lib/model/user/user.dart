@@ -38,6 +38,15 @@ class User {
   /// 实际上传
   String actualUpload;
 
+  /// 下载时间
+  String downloadTime;
+
+  /// 做种时间
+  String seedingTime;
+
+  /// 做种/下载时间比率
+  String seedingDownloadRatio;
+
   /// 实际下载
   String actualDownload;
   // 好人卡
