@@ -1,17 +1,50 @@
 class User {
+  /// 用户名
   String userName;
+
+  /// 性别
   String gender;
+
+  /// 等级
   String level;
+
+  /// 头像
   String avatar;
-  String invitaion; 
+
+  /// 邀请
+  String invitaion;
+
+  /// 邀请人
   String inviter;
+
+  /// 加入日期
   String joinDate;
+
+  /// 最近动向
   String recentTrends;
-  String ucoin; 
+
+  /// UCoin
+  String ucoin;
+
+  /// 上传量
+  String upload;
+
+  /// 分享率
+  String ratio;
+
+  /// 下载量
+  String download;
+
+  /// 实际上传
+  String actualUpload;
+
+  /// 实际下载
+  String actualDownload;
   // 好人卡
   String friendZone;
   // 坏人卡
   String badGuyZone;
-  String experience;
 
+  /// 经验值
+  String experience;
 }

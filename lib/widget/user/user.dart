@@ -45,7 +45,25 @@ class _User extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    children: <Widget>[Text('性别'), Text(state.user.gender)],
+                    children: <Widget>[Text('分享率'), Text(state.user.ratio)],
+                  ),
+                  Row(
+                    children: <Widget>[Text('上传量'), Text(state.user.upload)],
+                  ),
+                  Row(
+                    children: <Widget>[Text('下载量'), Text(state.user.download)],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text('实际上传'),
+                      Text(state.user.actualUpload)
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text('实际下载'),
+                      Text(state.user.actualDownload)
+                    ],
                   ),
                   Row(
                     children: <Widget>[

@@ -15,7 +15,7 @@ Future<User> fetchDetail(String cookie, String uid) async {
   final element = document.querySelectorAll('.rowhead');
 
   final user = User();
-  
+
   user.userName = document.querySelector('#info_block bdo').text;
 
   element.forEach((e) {
@@ -56,6 +56,24 @@ Future<User> fetchDetail(String cookie, String uid) async {
         break;
     }
   });
+
+  final tran = document.querySelectorAll('.embedded');
+  tran.forEach((t) {
+    final text = t.text;
+    print(text);
+    if (text.contains('分享率')) {
+      user.ratio = t.text.split('分享率:')[1].trim();
+    } else if (text.contains('上传量')) {
+      user.upload = t.text.split('上传量:')[1].trim();
+    } else if (text.contains('下载量')) {
+      user.download = t.text.split('下载量:')[1].trim();
+    } else if (text.contains('实际上传')) {
+      user.actualUpload = t.text.split('实际上传:')[1].trim();
+    } else if (text.contains('实际下载')) {
+      user.actualDownload = t.text.split('实际下载:')[1].trim();
+    }
+  });
+  print(user);
 
   return user;
 }
