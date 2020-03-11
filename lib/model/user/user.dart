@@ -1,4 +1,8 @@
 class User {
+  String userName;
+  String gender;
+  String level;
+  String avatar;
   String invitaion; 
   String inviter;
   String joinDate;

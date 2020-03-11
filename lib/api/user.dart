@@ -15,9 +15,21 @@ Future<User> fetchDetail(String cookie, String uid) async {
   final element = document.querySelectorAll('.rowhead');
 
   final user = User();
+  
+  user.userName = document.querySelector('#info_block bdo').text;
+
   element.forEach((e) {
     final title = e.text;
     switch (title) {
+      case '性别':
+        user.gender = e.nextElementSibling.firstChild.attributes["title"];
+        break;
+      case '头像':
+        user.avatar = e.nextElementSibling.firstChild.attributes["src"];
+        break;
+      case '等级':
+        user.level = e.nextElementSibling.firstChild.attributes["title"];
+        break;
       case '邀请':
         user.invitaion = e.nextElementSibling.text;
         break;
