@@ -56,4 +56,7 @@ class User {
 
   /// 经验值
   String experience;
+
+  /// 说明
+  String note;
 }
