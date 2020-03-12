@@ -36,6 +36,12 @@ Future<User> fetchDetail(String cookie, String uid) async {
       case '邀请人':
         user.inviter = e.nextElementSibling.text;
         break;
+      case '网络带宽':
+        final splitRet = e.nextElementSibling.text.replaceAll('\u00A0', ' ').split(' ').where((element) => element != '').toList();
+        user.uploadSpeed = splitRet[1];
+        user.downloadSpeed = splitRet[0];
+        user.isp = splitRet[2];
+        break;
       case '加入日期':
         user.joinDate = e.nextElementSibling.text;
         break;
@@ -57,10 +63,10 @@ Future<User> fetchDetail(String cookie, String uid) async {
     }
   });
 
+  // 传输信息
   final tran = document.querySelectorAll('.embedded');
   tran.forEach((t) {
     final text = t.text;
-    print(text);
     if (text.contains('分享率')) {
       user.ratio = t.text.split('分享率:')[1].trim();
     } else if (text.contains('上传量')) {
@@ -79,7 +85,6 @@ Future<User> fetchDetail(String cookie, String uid) async {
       user.downloadTime = t.text.split('下载时间:')[1].trim();
     }
   });
-  print(user);
 
   return user;
 }

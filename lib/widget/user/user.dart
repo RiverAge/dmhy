@@ -65,8 +65,11 @@ class _User extends StatelessWidget {
                       Text(state.user.actualDownload)
                     ],
                   ),
-                   Row(
-                    children: <Widget>[Text('做种/下载时间比率'), Text(state.user.seedingDownloadRatio)],
+                  Row(
+                    children: <Widget>[
+                      Text('做种/下载时间比率'),
+                      Text(state.user.seedingDownloadRatio)
+                    ],
                   ),
                   Row(
                     children: <Widget>[
@@ -79,6 +82,24 @@ class _User extends StatelessWidget {
                       Text('下载时间'),
                       Text(state.user.downloadTime)
                     ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text('上传速度'),
+                      Text(state.user.uploadSpeed)
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text('下载速度'),
+                      Text(state.user.downloadSpeed)
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[Text('运营商'), Text(state.user.isp)],
+                  ),
+                  Row(
+                    children: <Widget>[Text('性别'), Text(state.user.gender)],
                   ),
                   Row(
                     children: <Widget>[

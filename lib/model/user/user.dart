@@ -26,6 +26,15 @@ class User {
   /// UCoin
   String ucoin;
 
+  /// 上传速度
+  String uploadSpeed;
+
+  /// 下载
+  String downloadSpeed;
+
+  /// 运营商
+  String isp;
+
   /// 上传量
   String upload;
 
