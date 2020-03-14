@@ -17,7 +17,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
       try {
         final user = await _sl<UserRepository>()
-            .fetch(token: event.token, uid: event.uid);
+            .getDetail(token: event.token, uid: event.uid);
         yield UserLoaded(user: user);
       } catch (e) {
         yield UserLoadFailed(error: e.toString());
