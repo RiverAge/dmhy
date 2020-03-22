@@ -1,20 +1,23 @@
 import 'package:dmhy/bloc/authenticate/authenticate.dart';
-import 'package:dmhy/bloc/seeding/seeding.dart';
-import 'package:dmhy/event/seeding/seeding.dart';
-import 'package:dmhy/model/user/torrent.dart' as model;
+import 'package:dmhy/bloc/torrent/torrent.dart';
+import 'package:dmhy/event/torrent/torrent.dart';
 import 'package:dmhy/state/authenticate/authenticate.dart';
-import 'package:dmhy/state/seeding/seeding.dart';
+import 'package:dmhy/state/torrent/torrent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Torrent extends StatelessWidget {
+  final String id;
+
+  Torrent({@required this.id}) : assert(id != null);
+
   @override
   Widget build(BuildContext context) =>
       BlocBuilder<AuthenticateBloc, AuthenticateState>(
           builder: (context, state) => state is AuthenticationAuthenticated
               ? BlocProvider(
-                  create: (context) => SeedingBloc()
-                    ..add(Fetch(token: state.token, uid: state.uid)),
+                  create: (context) => TorrentBloc()
+                    ..add(Fetch(token: state.token, id: this.id)),
                   child: _Torrent(),
                 )
               : null);
@@ -22,49 +25,16 @@ class Torrent extends StatelessWidget {
 
 class _Torrent extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => BlocBuilder<SeedingBloc, SeedingState>(
-      builder: (context, state) => Scaffold(
-            appBar: AppBar(
-              title: Text('做种'),
-            ),
-            body: state is SeedingLoaded
-                ? ListView.builder(
-                    itemBuilder: (_, i) =>
-                        _ListTitle(torrent: state.torrents[i]),
-                    itemCount: state.torrents.length)
-                : null,
-          ));
-}
-
-class _ListTitle extends StatelessWidget {
-  final model.Torrent torrent;
-  _ListTitle({@required this.torrent, Key key});
-  @override
-  Widget build(BuildContext context) => ListTile(
-        leading: Column(
-          children: <Widget>[
-            Text(torrent.category),
-            Text(
-              torrent.size,
-            ),
-             Text(
-              torrent.discount,
-            ),
-          ],
+  Widget build(BuildContext context) => BlocBuilder<TorrentBloc, TorrentState>(
+        builder: (context, state) => Scaffold(
+          appBar: AppBar(
+            title: Text('做种'),
+          ),
+          body: state is TorrentLoaded
+              ? ListView(
+                  children: <Widget>[],
+                )
+              : null,
         ),
-        title: Column(children: <Widget>[
-         Text(
-          torrent.title,
-          style: TextStyle(fontSize: 13),
-        ), 
-         Text(
-          torrent.subtitle,
-          textAlign: TextAlign.left,
-          style: TextStyle(fontSize: 13),
-        ), 
-        ],) ,
-        subtitle: Text('${torrent.uploadSize} | ${torrent.downloadSize}'),
-        trailing: Text(torrent.ratio),
-        isThreeLine: true,
       );
 }

@@ -31,4 +31,6 @@ class Torrent {
   String leechers; 
   String completions;
   String discount;
+  String discountRemain;
+  bool isHot;
 }
