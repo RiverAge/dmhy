@@ -1,6 +1,7 @@
 import 'package:dmhy/bloc/authenticate/authenticate.dart';
 import 'package:dmhy/state/authenticate/authenticate.dart';
-import 'package:dmhy/widget/torrent/torrent.dart';
+import 'package:dmhy/widget/torrent/seedings.dart';
+import 'package:dmhy/widget/torrent/torrents.dart';
 import 'package:dmhy/widget/user/bt_client.dart';
 import 'package:dmhy/widget/user/user.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,13 @@ class Home extends StatelessWidget {
                         onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Torrent()))),
+                                builder: (context) => Seedings()))),
+                                  RaisedButton(
+                        child: Text('种子'),
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Torrents()))),
                   ],
                 )
               : SizedBox.shrink());
