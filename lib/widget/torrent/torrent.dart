@@ -28,7 +28,7 @@ class _Torrent extends StatelessWidget {
   Widget build(BuildContext context) => BlocBuilder<TorrentBloc, TorrentState>(
         builder: (context, state) => Scaffold(
           appBar: AppBar(
-            title: Text('做种'),
+            title: Text('种子'),
           ),
           body: state is TorrentLoaded
               ? ListView(
