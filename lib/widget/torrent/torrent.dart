@@ -28,11 +28,22 @@ class _Torrent extends StatelessWidget {
   Widget build(BuildContext context) => BlocBuilder<TorrentBloc, TorrentState>(
         builder: (context, state) => Scaffold(
           appBar: AppBar(
-            title: Text('种子'),
+            title: Text(state is TorrentLoaded ? state.torrent.title : ''),
           ),
           body: state is TorrentLoaded
               ? ListView(
-                  children: <Widget>[],
+                  children: <Widget>[
+                    ListTile(title: Text(state.torrent.title)),
+                    ListTile(title: Text(state.torrent.subtitle)),
+                    ListTile(title: Text(state.torrent.category)),
+                    ListTile(title: Text(state.torrent.filesCount)),
+                    ListTile(title: Text(state.torrent.fileHash)),
+                    ListTile(title: Text(state.torrent.size)),
+                    ListTile(title: Text(state.torrent.pv)),
+                    ListTile(title: Text(state.torrent.uv)),
+                    ListTile(title: Text(state.torrent.completions)),
+                    ListTile(title: Text(state.torrent.lastActivity))
+                  ],
                 )
               : null,
         ),
