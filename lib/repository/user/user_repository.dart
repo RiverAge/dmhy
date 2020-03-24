@@ -1,4 +1,4 @@
-import 'package:dmhy/model/user/torrent.dart';
+import 'package:dmhy/model/torrent/torrent.dart';
 import 'package:dmhy/model/user/user.dart';
 import 'package:meta/meta.dart';
 

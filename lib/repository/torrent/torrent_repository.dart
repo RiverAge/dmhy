@@ -1,4 +1,4 @@
-import 'package:dmhy/model/user/torrent.dart';
+import 'package:dmhy/model/torrent/torrent.dart';
 import 'package:meta/meta.dart';
 import 'package:dmhy/api/torrent.dart' as TorrentAPI;
 

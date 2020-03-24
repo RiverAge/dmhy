@@ -1,7 +1,7 @@
 import 'package:dmhy/bloc/authenticate/authenticate.dart';
 import 'package:dmhy/bloc/seeding/seeding.dart';
 import 'package:dmhy/event/seeding/seeding.dart';
-import 'package:dmhy/model/user/torrent.dart' as model;
+import 'package:dmhy/model/torrent/torrent.dart' as model;
 import 'package:dmhy/state/authenticate/authenticate.dart';
 import 'package:dmhy/state/seeding/seeding.dart';
 import 'package:flutter/material.dart';
