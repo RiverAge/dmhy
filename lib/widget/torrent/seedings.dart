@@ -50,9 +50,6 @@ class _ListTitle extends StatelessWidget {
             Column(
               children: <Widget>[
                 Text(
-                  torrent.discount,
-                ),
-                Text(
                   torrent.discountRemain,
                 ),
               ],
@@ -72,7 +69,14 @@ class _ListTitle extends StatelessWidget {
             ),
           ],
         ),
-        subtitle: Text('${torrent.uploadSize} | ${torrent.downloadSize}'),
+        subtitle: Row(
+          children: <Widget>[
+            Text('${torrent.uploadSize} | ${torrent.downloadSize}'),
+            Text(
+              torrent.discount,
+            ),
+          ],
+        ),
         trailing: Text(torrent.ratio),
         isThreeLine: true,
       );
