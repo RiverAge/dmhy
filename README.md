@@ -1,16 +1,24 @@
 # dmhy
 
-A new Flutter project.
+动漫花园的一个 Flutter APP
 
-## Getting Started
+## 还没有实现的功能
 
-This project is a starting point for a Flutter application.
+### [ucoin](https://u2.dmhy.org/ucoin.php)
+1. UCoin变动日志 
+1. 做种UCoin日志 
+1. 最近做种UCoin
+1. 个性化魔法
+1. 赠送
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### [控制面板](https://u2.dmhy.org/usercp.php)
+### [会员](https://u2.dmhy.org/users.php)
+### [排行榜](https://u2.dmhy.org/topten.php)
+### [日志](https://u2.dmhy.org/topten.php)
+### [聊天](https://u2.dmhy.org/shoutwindow.php)
+### [规则](https://u2.dmhy.org/rules.php)
+### [常见问题](https://u2.dmhy.org/faq.php)
+### 种子评论
+### 正在下载
+### 已发布种子
+### 已完成
