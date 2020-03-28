@@ -4,6 +4,7 @@ import 'package:dmhy/event/seeding/seeding.dart';
 import 'package:dmhy/model/torrent/torrent.dart' as model;
 import 'package:dmhy/state/authenticate/authenticate.dart';
 import 'package:dmhy/state/seeding/seeding.dart';
+import 'package:dmhy/widget/torrent/torrent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,6 +42,12 @@ class _ListTitle extends StatelessWidget {
   _ListTitle({@required this.torrent, Key key});
   @override
   Widget build(BuildContext context) => ListTile(
+        onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Torrent(
+                      id: torrent.id,
+                    ))),
         leading: Column(
           children: <Widget>[
             Text(torrent.category),

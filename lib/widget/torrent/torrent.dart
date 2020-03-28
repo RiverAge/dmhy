@@ -37,7 +37,9 @@ class _Torrent extends StatelessWidget {
                   children: <Widget>[
                     Image.network(state.torrent.cover),
                     ListTile(title: Text(state.torrent.title)),
-                    ListTile(title: Text(state.torrent.subtitle)),
+                    state.torrent.subtitle != null
+                        ? ListTile(title: Text(state.torrent.subtitle))
+                        : SizedBox.shrink(),
                     ListTile(title: Text(state.torrent.category)),
                     ListTile(title: Text(state.torrent.filesCount)),
                     ListTile(title: Text(state.torrent.fileHash)),
@@ -46,7 +48,9 @@ class _Torrent extends StatelessWidget {
                     ListTile(title: Text(state.torrent.uv)),
                     ListTile(title: Text(state.torrent.completions)),
                     ListTile(title: Text(state.torrent.lastActivity)),
-                    ListTile(title: Text('${state.torrent.seeders} | ${state.torrent.leechers}')),
+                    ListTile(
+                        title: Text(
+                            '${state.torrent.seeders} | ${state.torrent.leechers}')),
                     ListTile(
                         title: Text('描述'),
                         onTap: () => _onReferenceTap(context, state.torrent))
