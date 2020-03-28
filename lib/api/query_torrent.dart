@@ -1,5 +1,6 @@
 part of 'torrent.dart';
 
+/// 检索种子列表
 Future<List<Torrent>> queryTorrent({@required cookie, String query}) async {
   final response = await http.get(
       'https://u2.dmhy.org/torrents.php?cat9=1&cat12=1&incldead=1&spstate=0&inclbookmarked=0&search=$query&search_area=0&search_mode=0',

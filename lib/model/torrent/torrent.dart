@@ -24,10 +24,12 @@ class Torrent {
   String comments;
   String ttl;
   String size;
+  /// 做种数
   String seeders;
   String uploadSize;
   String downloadSize;
   String ratio;
+  /// 下载数
   String leechers; 
   /// 完成数
   String completions;

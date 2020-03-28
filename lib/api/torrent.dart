@@ -1,4 +1,5 @@
 import 'package:dmhy/model/torrent/torrent.dart';
+import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;

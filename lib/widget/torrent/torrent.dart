@@ -35,6 +35,7 @@ class _Torrent extends StatelessWidget {
           body: state is TorrentLoaded
               ? ListView(
                   children: <Widget>[
+                    Image.network(state.torrent.cover),
                     ListTile(title: Text(state.torrent.title)),
                     ListTile(title: Text(state.torrent.subtitle)),
                     ListTile(title: Text(state.torrent.category)),
@@ -45,6 +46,7 @@ class _Torrent extends StatelessWidget {
                     ListTile(title: Text(state.torrent.uv)),
                     ListTile(title: Text(state.torrent.completions)),
                     ListTile(title: Text(state.torrent.lastActivity)),
+                    ListTile(title: Text('${state.torrent.seeders} | ${state.torrent.leechers}')),
                     ListTile(
                         title: Text('描述'),
                         onTap: () => _onReferenceTap(context, state.torrent))
