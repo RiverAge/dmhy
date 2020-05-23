@@ -35,7 +35,9 @@ class _Torrent extends StatelessWidget {
           body: state is TorrentLoaded
               ? ListView(
                   children: <Widget>[
-                    Image.network(state.torrent.cover),
+                    state.torrent.cover != null
+                        ? Image.network(state.torrent.cover)
+                        : SizedBox.shrink(),
                     ListTile(title: Text(state.torrent.title)),
                     state.torrent.subtitle != null
                         ? ListTile(title: Text(state.torrent.subtitle))

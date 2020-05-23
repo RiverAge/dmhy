@@ -52,7 +52,7 @@ void setTorrent(Element el, Torrent torrent) {
     case '描述':
       // 描述
       torrent.cover =
-          (el.querySelector("#kdescr bdo img")?.attributes ?? {})["src"].trim();
+          (el.querySelector("#kdescr bdo img")?.attributes ?? {})["src"]?.trim();
       torrent.references = List();
       el
           .querySelector("#kdescr bdo")
