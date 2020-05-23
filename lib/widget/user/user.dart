@@ -6,6 +6,7 @@ import 'package:dmhy/state/user/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// 用户信息界面
 class User extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// 用户BT客户端界面
 class BTClient extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(

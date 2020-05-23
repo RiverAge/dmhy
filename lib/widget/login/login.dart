@@ -6,6 +6,7 @@ import 'package:dmhy/state/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// 登陆界面
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiBlocProvider(providers: [
