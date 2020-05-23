@@ -3,6 +3,7 @@ import 'package:dmhy/bloc/torrent/torrent.dart';
 import 'package:dmhy/event/torrent/torrent.dart';
 import 'package:dmhy/state/authenticate/authenticate.dart';
 import 'package:dmhy/state/torrent/torrent.dart';
+import 'package:dmhy/widget/torrent/files.dart';
 import 'package:dmhy/widget/torrent/peers.dart';
 import 'package:dmhy/widget/torrent/torrent_description.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,10 @@ class _Torrent extends StatelessWidget {
                         title: Text('描述'),
                         onTap: () => _onReferenceTap(context, state.torrent)),
                     ListTile(
+                      title: Text('文件列表'),
+                      onTap: () => onFilesTap(context, state.torrent),
+                    ),
+                    ListTile(
                       title: Text('做种列表'),
                       onTap: () => onPeersTap(context, state.torrent),
                     )
@@ -72,6 +77,11 @@ class _Torrent extends StatelessWidget {
         context,
         MaterialPageRoute(
             builder: (context) => TorrentDescription(torrent: torrent)));
+  }
+
+  onFilesTap(BuildContext context, model.Torrent torrent) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => Files(tid: torrent.id)));
   }
 
   onPeersTap(BuildContext context, model.Torrent torrent) {

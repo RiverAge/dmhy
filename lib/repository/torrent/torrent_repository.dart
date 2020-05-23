@@ -1,3 +1,4 @@
+import 'package:dmhy/model/torrent/file.dart';
 import 'package:dmhy/model/torrent/peer.dart';
 import 'package:dmhy/model/torrent/torrent.dart';
 import 'package:meta/meta.dart';
@@ -16,6 +17,9 @@ class TorrentRepository {
 
    Future<List<Peer>> fetchPeerByTorrent({@required token, tid}) async {
     return TorrentAPI.fetchPeerByTorrent(cookie: token, tid: tid) ;
+  }
 
+  Future<List<File>> fetchFilesByTorrent({@required token, tid}) async {
+    return TorrentAPI.fetchFilesByTorrent(cookie: token, tid: tid) ;
   }
 }
