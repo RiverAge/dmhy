@@ -19,7 +19,7 @@ Future<List<File>> fetchFilesByTorrent(
   filesElement.skip(1).forEach((element) {
     final file = File();
     file.id = element.attributes["id"].split('_')[2];
-    file.name = element.children[0].text;
+    file.name = element.children[0].text.trim();
     file.size = element.children[1].text;
 
     files.add(file);
