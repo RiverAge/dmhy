@@ -1,4 +1,6 @@
 part of 'user.dart';
+
+/// 正在做种
 Future<List<Torrent>> fetchSeedings(String cookie, String uid) async {
   final response = await http.get('https://u2.dmhy.org/getusertorrentlistajax.php?userid=$uid&type=seeding',
       headers: {'cookie': cookie});
