@@ -8,6 +8,7 @@ import 'package:dmhy/widget/torrent/torrent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// 种子列表界面
 class Torrents extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>

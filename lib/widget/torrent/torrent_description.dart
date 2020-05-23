@@ -1,6 +1,7 @@
 import 'package:dmhy/model/torrent/torrent.dart';
 import 'package:flutter/material.dart';
 
+/// 种子文字描述
 class TorrentDescription extends StatelessWidget {
   final Torrent torrent;
 

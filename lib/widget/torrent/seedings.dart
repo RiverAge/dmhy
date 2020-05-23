@@ -8,6 +8,7 @@ import 'package:dmhy/widget/torrent/torrent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// 做种列表
 class Seedings extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
